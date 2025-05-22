@@ -59,11 +59,11 @@ const bech32Chain = (name: string, prefix: string) => ({
 export const TAC = bech32Chain('TAC', 'tac');
 
 export const ethToTac = (ethAddress: string) => {
-  const data = ETH.decoder(ethAddress);
-  return TAC.encoder(data);
+  const data = ETH.decoder(ethAddress.toLowerCase());
+  return TAC.encoder(data).toLowerCase();
 };
 
 export const tacToEth = (tacAddress: string) => {
-  const data = TAC.decoder(tacAddress);
-  return ETH.encoder(data);
+  const data = TAC.decoder(tacAddress.toLowerCase());
+  return ETH.encoder(data).toLowerCase();
 };
